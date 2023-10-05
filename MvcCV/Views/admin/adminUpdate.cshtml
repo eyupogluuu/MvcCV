@@ -1,0 +1,23 @@
+﻿@model MvcCV.Models.Entity.login
+@{
+    ViewBag.Title = "adminUpdate";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+<h2 class="card-header" style="color: white; background-color: gray; text-align: center ">Kullanıcı Güncelleme Sayfası</h2>
+<br />
+
+<div style="background-color:darkgray; border:outset; color:white ">
+    <form method="post">
+        <br />
+        @Html.HiddenFor(x=>x.loginID)
+        @Html.TextBoxFor(x => x.username, new { @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(x => x.password, new { @class = "form-control" })
+        <br />
+        <button style="border-radius:12px;" class="btn-outline-dark"> Kaydet </button>
+        <br /> <br />
+    </form>
+</div>
+

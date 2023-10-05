@@ -1,0 +1,32 @@
+﻿@model  MvcCV.Models.Entity.education
+@{
+    ViewBag.Title = "eduAdd";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+<h2 class="card-header" style="color: white; background-color: gray; text-align: center ">Eğitim Ekleme Sayfası</h2>
+<br />
+
+<div style="background-color:darkgray; border:outset; color:white ">
+    <form method="post">
+        <br />
+        <input type="text" name="tittle" placeholder="okul/kurum adı" class="form-control" required />
+        @*@Html.ValidationMessageFor(x=>x.tittle, "", new { @sytle="color:red" })*@
+        <br />
+        <input type="text" name="subtittle" placeholder="fakülte" class="form-control" />
+        <br />
+        <input type="text" name="subtittle2" placeholder="bölüm" class="form-control" />
+        <br />
+        <input type="text" name="gradeavarage" placeholder="bitirme notu" class="form-control" required />
+        @Html.ValidationMessageFor(x => x.gradeavarage, "", new { @style = "color:red" })
+        <br />
+        <input type="text" name="date" placeholder="tarih" class="form-control" />
+        <br />
+        <button style="border-radius:12px;" class="btn-outline-dark"> Kaydet </button>
+        <br /> <br />
+    </form>
+</div>
+
+
+

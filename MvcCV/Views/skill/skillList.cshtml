@@ -1,0 +1,90 @@
+﻿@model List<MvcCV.Models.Entity.skill>
+@{
+    ViewBag.Title = "skillList";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+@{
+    string renk = "";
+    string labelrenk = "";
+}
+<!DOCTYPE html>
+<html><br /><br />
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-header" style="color: white; background-color: gray; text-align: center ">Yetenek  Sayfası</h2>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered" style="background-color:black; border:outset; color:white">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">ID</th>
+                                            <th>Yetenek</th>
+                                            <th>Derece</th>
+                                            <th>Deger</th>
+                                            <th>Sil</th>
+                                            <th>Düzenle</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var s in Model)
+                                        {
+                                            if (s.skillRating >= 0 && s.skillRating <= 50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                                labelrenk = "badge bg-danger";
+                                            }
+                                            if (s.skillRating >= 51 && s.skillRating <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                                labelrenk = "badge bg-warning";
+                                            }
+                                            if (s.skillRating >= 71 && s.skillRating <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                                labelrenk = "badge bg-primary";
+                                            }
+                                            if (s.skillRating >= 85 && s.skillRating <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                                labelrenk = "badge bg-success";
+                                            }
+
+                                            <tr>
+                                                <td>@s.skillID</td>
+                                                <td>@s.skillDescreption</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @s.skillRating%"></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="@labelrenk">@s.skillRating</span></td>
+                                                <td><a href="/skill/skillDelete/@s.skillID" class="btn btn-outline-danger">Sil</a></td>
+                                                <td><a href="/skill/skillUpdate/@s.skillID" class="btn btn-outline-warning">Düzenle</a></td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/skill/skillAdd/" class="btn btn-dark" style="color:white;">Yeni Yetenek Ekle</a>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

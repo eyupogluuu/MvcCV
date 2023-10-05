@@ -1,0 +1,49 @@
+﻿@model List<MvcCV.Models.Entity.social>
+@{
+    ViewBag.Title = "socialList";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+<h2 class="card-header" style="color: white; background-color:gray; text-align: center">Sosyal Medya Listesi</h2>
+<br />
+
+<table class="table table-bordered" style="background-color: gray; text-align: center; color: white ">
+    <tr>
+        <th>ID</th>
+        <th>Sosyal Medya</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+
+    @foreach (var s in Model)
+    {
+        <tr>
+            <td>@s.meidaID</td>
+            <td>@s.mediaName</td>
+            <td>@s.mediaStatus</td>
+            <td><a href="/social/socialDelete/@s.meidaID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/social/SocialUpdate/@s.meidaID" class="btn btn-warning">Düzenle</a></td>
+
+        </tr>
+    }
+</table>
+<button class="btn btn-dark" data-toggle="modal" data-target="#Modal1">Yeni Sosyal Medya Hesabı Ekle</button>
+<br />
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sosyal Medya  Ekleme Paneli</h2>
+            </div>
+            <form action="/social/socialAdd/" method="post">
+                <div class="modal-body">
+                    <input type="text" name="mediaName" value="" class=" form-control" placeholder="sosyalmedya adı.." /><br />
+                    <input type="text" name="mediaLink" value="" class=" form-control" placeholder="sosyalmedya link.." /><br />
+                    <input type="text" name="mediaIcon" value="" class=" form-control" placeholder="sosyalmedya iconu.." /><br />
+                    <button class="btn btn-dark">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

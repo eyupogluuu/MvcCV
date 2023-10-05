@@ -1,0 +1,13 @@
+﻿@model List<MvcCV.Models.Entity.interest>
+<section class="resume-section" id="interests">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Hobilerim</h2>
+        @foreach (var i in Model)
+        {
+            <p> <span style="text-shadow:inherit">@i.interesetDesc1 </span></p>
+            <p class="mb-0">@i.interesetDesc2</p>
+            <br />
+        }
+
+    </div>
+</section>

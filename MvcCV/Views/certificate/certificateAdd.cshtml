@@ -1,0 +1,21 @@
+﻿@model MvcCV.Models.Entity.certificate
+@{
+    ViewBag.Title = "certificateAdd";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+<h2 class="card-header" style="color: white; background-color: gray; text-align: center ">Sertifika Ekleme Sayfası</h2>
+<br />
+
+<div style="background-color:darkgray; border:outset; color:white ">
+    <form method="post">
+        <br />
+        <input type="text" name="date" placeholder="alınan yıl .." class="form-control" />
+        <br />
+        <input type="text" name="descreption" placeholder="sertifika adı .." class="form-control" />
+        <br />
+        <button style="border-radius:12px;" class="btn-outline-dark"> Kaydet </button>
+        <br /> <br />
+    </form>
+</div>

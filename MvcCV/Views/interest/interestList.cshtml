@@ -1,0 +1,33 @@
+﻿@using MvcCV.Models.Entity
+@model List<interest>
+@{
+    ViewBag.Title = "interestList";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<br />
+<h2 class="card-header" style="color: white; background-color:gray; text-align: center">Hobiler Listesi</h2>
+<br />
+
+
+<table class="table table-bordered" style="background-color: gray; text-align: center; color: white ">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+        <th>Açıklama</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.interestID</td>
+            <td>@i.interesetDesc1</td>
+            <td>@i.interesetDesc2</td>
+            <td><a href="/interest/interestDelete/@i.interestID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/interest/interestUpdate/@i.interestID" class="btn btn-warning">Düzenle</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/interest/interestAdd/" class="btn btn-dark" style="color:white;">Yeni Hobi Ekle</a>

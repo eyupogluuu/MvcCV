@@ -1,0 +1,34 @@
+﻿@model List<MvcCV.Models.Entity.experince>
+@{
+    ViewBag.Title = "expList";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<br />
+<h2 class="card-header" style="color: white; background-color:gray; text-align: center">Deneyimler Listesi</h2>
+<br />
+<table class="table table-bordered" style="background-color: gray; text-align: center; color: white ">
+    <tr>
+        <th>ID</th>
+        <th>Şirket</th>
+        <th>Ünvan</th>
+        <th>Görev</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.expID</td>
+            <td>@e.company</td>
+            <td>@e.tittle</td>
+            <td>@e.subtittle</td>
+            <td>@e.date</td>
+            <td><a href="/experince/expDelete/@e.expID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/experince/experinceUpdate/@e.expID" class="btn btn-warning">Düzenle</a></td>
+            
+        </tr>
+    }
+</table>
+<a href="/experince/expAdd/" class="btn btn-dark" style="color:white;">Yeni Deneyim Ekle</a>

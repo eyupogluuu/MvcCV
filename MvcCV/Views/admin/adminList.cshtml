@@ -1,0 +1,37 @@
+﻿@model List<MvcCV.Models.Entity.login>
+@{
+    ViewBag.Title = "adminList";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+<h2 class="card-header" style="color: white; background-color:gray; text-align: center">Kullanıcı Listesi</h2>
+<br />
+<table class="table table-bordered" style="background-color: gray; text-align: center; color: white ">
+    <tr>
+        <th>ID</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+        
+    </tr>
+
+    @foreach (var l in Model)
+    {
+        <tr>
+            <td>@l.loginID</td>
+            <td>@l.username</td>
+            <td>@l.password</td>
+            
+            <td><a href="/admin/adminDelete/@l.loginID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/admin/adminUpdate/@l.loginID" class="btn btn-warning">Düzenle</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/admin/adminAdd/" class="btn btn-dark" style="color:white;">Yeni Kullanıcı Ekle</a>
+
+
+
+
